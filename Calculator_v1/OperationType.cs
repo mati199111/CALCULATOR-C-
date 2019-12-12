@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Calculator_v1
 {
+    #region operationType
     /// <summary>
     /// a type of operation the calculator can perform
     /// </summary>
-    public enum OperatorType
+    public enum OperationType
     {
         /// <summary>
         /// add two velue together
@@ -28,4 +29,5 @@ namespace Calculator_v1
         /// </summary>
         Multiply
     }
+    #endregion
 }

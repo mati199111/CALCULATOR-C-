@@ -23,7 +23,7 @@ namespace Calculator_v1
         /// <summary>
         /// type of operattion to perform
         /// </summary>
-        public OperatorType OperationType { get; set; }
+        public OperationType OperationType { get; set; }
         /// <summary>
         /// the inner operation to be performed initially before this operation
         /// </summary>
