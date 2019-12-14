@@ -284,11 +284,7 @@ namespace Calculator_v1
         }
 
         #endregion
-<<<<<<< HEAD
-        #region equation
-=======
 
->>>>>>> f03b351520922618e1f34a2ae76d621288267e0f
         /// <summary>
         /// Calculates the given equation and outputs the answer to the user label
         /// </summary>
@@ -301,15 +297,9 @@ namespace Calculator_v1
 
             // 5. Recursive functions
             // 6. Switch statements
-<<<<<<< HEAD
 
             this.CalculationResultText.Text = ParseOperation();
 
-=======
-
-            this.CalculationResultText.Text = ParseOperation();
-
->>>>>>> f03b351520922618e1f34a2ae76d621288267e0f
             // Focus the user input text
             FocusInputText();
         }
@@ -341,12 +331,7 @@ namespace Calculator_v1
                     //       It should calculate 5 * 3 first, then 4 + the result (so 4 + 15)
 
                     // Check if the current character is a number
-<<<<<<< HEAD
-                    var Mystring = "0123456789.";
-                    if (Mystring.Any(c => input[i] == c))
-=======
                     if ("0123456789.".Any(c => input[i] == c))
->>>>>>> f03b351520922618e1f34a2ae76d621288267e0f
                     {
                         if (leftSide)
                             operation.LeftSide = AddNumberPart(operation.LeftSide, input[i]);
@@ -413,10 +398,7 @@ namespace Calculator_v1
                         }
                     }
                 }
-<<<<<<< HEAD
-=======
 
->>>>>>> f03b351520922618e1f34a2ae76d621288267e0f
                 // If we are done parsing, and there were no exceptions
                 // calculate the current operation
                 return CalculateOperation(operation);
@@ -432,7 +414,6 @@ namespace Calculator_v1
         /// </summary>
         /// <param name="operation">The operation to calculate</param>
         private string CalculateOperation(Operation operation)
-<<<<<<< HEAD
         {
             // Store the number values of the string representations
             decimal left = 0;
@@ -445,6 +426,7 @@ namespace Calculator_v1
             // Check if we have a valid right side number
             if (string.IsNullOrEmpty(operation.RightSide) || !decimal.TryParse(operation.RightSide, out right))
                 throw new InvalidOperationException($"Right side of the operation was not a number. {operation.RightSide}");
+
             try
             {
                 switch (operation.OperationType)
@@ -502,83 +484,8 @@ namespace Calculator_v1
                 throw new InvalidOperationException($"Number {currentNumber} already contains a . and another cannot be added");
 
             return currentNumber + newCharacter;
-=======
-        {
-            // Store the number values of the string representations
-            decimal left = 0;
-            decimal right = 0;
-
-            // Check if we have a valid left side number
-            if (string.IsNullOrEmpty(operation.LeftSide) || !decimal.TryParse(operation.LeftSide, out left))
-                throw new InvalidOperationException($"Left side of the operation was not a number. {operation.LeftSide}");
-
-            // Check if we have a valid right side number
-            if (string.IsNullOrEmpty(operation.RightSide) || !decimal.TryParse(operation.RightSide, out right))
-                throw new InvalidOperationException($"Right side of the operation was not a number. {operation.RightSide}");
-
-            try
-            {
-                switch (operation.OperationType)
-                {
-                    case OperationType.Add:
-                        return (left + right).ToString();
-                    case OperationType.Minus:
-                        return (left - right).ToString();
-                    case OperationType.Divide:
-                        return (left / right).ToString();
-                    case OperationType.Multiply:
-                        return (left * right).ToString();
-                    default:
-                        throw new InvalidOperationException($"Unknown operator type when calculating operation. { operation.OperationType }");
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new InvalidOperationException($"Failed to calculate operation {operation.LeftSide} {operation.OperationType} {operation.RightSide}. {ex.Message}");
-            }
         }
 
-        /// <summary>
-        /// Accepts a character and returns the known <see cref="OperationType"/>
-        /// </summary>
-        /// <param name="character">The character to parse</param>
-        /// <returns></returns>
-        private OperationType GetOperationType(char character)
-        {
-            switch (character)
-            {
-                case '+':
-                    return OperationType.Add;
-                case '-':
-                    return OperationType.Minus;
-                case '/':
-                    return OperationType.Divide;
-                case '*':
-                    return OperationType.Multiply;
-                default:
-                    throw new InvalidOperationException($"Unknown operator type { character }");
-            }
->>>>>>> f03b351520922618e1f34a2ae76d621288267e0f
-        }
-
-<<<<<<< HEAD
-=======
-        /// <summary>
-        /// Attempts to add a new character to the current number, checking for valid characters as it goes
-        /// </summary>
-        /// <param name="currentNumber">The current number string</param>
-        /// <param name="newCharacter">The new character to append to the string</param>
-        /// <returns></returns>
-        private string AddNumberPart(string currentNumber, char newCharacter)
-        {
-            // Check if there is already a . in the number
-            if (newCharacter == '.' && currentNumber.Contains('.'))
-                throw new InvalidOperationException($"Number {currentNumber} already contains a . and another cannot be added");
-
-            return currentNumber + newCharacter;
-        }
-
->>>>>>> f03b351520922618e1f34a2ae76d621288267e0f
         #region Private Helpers
 
         /// <summary>
@@ -613,11 +520,8 @@ namespace Calculator_v1
         /// </summary>
         private void DeleteTextValue()
         {
-<<<<<<< HEAD
-            //porownanie 
             if ((String.Compare(UserInputText.Text, " ") < 0))
             {
-                //substring ciecie 
                 UserInputText.Text = UserInputText.Text.Substring(0, UserInputText.Text.Length - 1 + 1);
             }
             else
@@ -625,41 +529,7 @@ namespace Calculator_v1
                 UserInputText.Text = UserInputText.Text.Substring(0, UserInputText.Text.Length - 1);
             }
         }
-        #endregion
-        /// <summary>
-        /// test methods to check
-        /// </summary>
-        #region tests
-        private void xx()
-        {
-            
-        }
-=======
-            // If we don't have a value to delete, return
-            if (this.UserInputText.Text.Length < this.UserInputText.SelectionStart + 1)
-                return;
 
-            // Remember selection start
-            var selectionStart = this.UserInputText.SelectionStart;
-
-            // Delete the character to the right of the selection
-            this.UserInputText.Text = this.UserInputText.Text.Remove(this.UserInputText.SelectionStart, 1);
-            
-            // Restore the selection start
-            this.UserInputText.SelectionStart = selectionStart;
-
-            // Set selection length to zero
-            this.UserInputText.SelectionLength = 0;
-        }
-
->>>>>>> f03b351520922618e1f34a2ae76d621288267e0f
         #endregion
     }
 }
-// do zrobienia
-// drugi windows form
-// construktory + nowa klasa\
-// zainicjowanie nowego forma + przejscia
-
-    // dodanie rzeczy z tabelki - dziedziczenie, polimorfizm itd
-    
