@@ -1,45 +1,51 @@
 ﻿using System;
-//using System.Collections.Generic;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
-//using System.Threading.Tasks;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Calculator_v1
 {
-    /// <summary>
-    /// a basic calculator
-    /// </summary>
-    public partial class Form1 : Form
+    public partial class Form2 : Form
     {
-        /// <summary>
-        /// default constructor
-        /// </summary>
-        #region Constructor
-        public Form1()
+        public Form2()
         {
             InitializeComponent();
         }
-        #endregion
-        #region procalc
-        /// <summary>
-        /// pokazywanie drugiego kalkulatora
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void proCalc_Click(object sender, EventArgs e)
+
+        #region load
+
+        private Form1 _mainForm = null;
+
+        public Form2(Form callingForm)
         {
-            Form2 frm = new Form2();
-            frm.Show();
+            _mainForm = callingForm as Form1;
+            InitializeComponent();
+
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
+        #region basiccalc-ladowanie
+
+        private void StandCalc_Click(object sender, EventArgs e)
+        {
+            Form1 frm2 = new Form1();
+            frm2.Show();
             this.Hide();
         }
-        #endregion
-        #region Clearing Methods
 
-        /// <summary>
-        /// Clears the user input text
-        /// </summary>
-        /// <param name="sender">The event sender</param>
-        /// <param name="e">The event arguments</param>
+        #endregion
+
+        #region clearing methods
         private void CEButton_Click(object sender, EventArgs e)
         {
             // Clears the text from the user input text box
@@ -49,12 +55,6 @@ namespace Calculator_v1
             // Focus the user input text
             FocusInputText();
         }
-
-        /// <summary>
-        /// Deletes the first character in front of the cursor
-        /// </summary>
-        /// <param name="sender">The event sender</param>
-        /// <param name="e">The event arguments</param>
         private void DelButton_Click(object sender, EventArgs e)
         {
             // Delete the value after the selected position
@@ -63,15 +63,8 @@ namespace Calculator_v1
             // Focus the user input text
             FocusInputText();
         }
-
         #endregion
-        #region Operator Methods
-
-        /// <summary>
-        /// Adds the Divide character to the text at the currently selection position
-        /// </summary>
-        /// <param name="sender">The event sender</param>
-        /// <param name="e">The event arguments</param>
+        #region operators
         private void DivideButton_Click(object sender, EventArgs e)
         {
             // Insert the value in the user input text box at the currently selected position
@@ -81,25 +74,17 @@ namespace Calculator_v1
             FocusInputText();
         }
 
-        /// <summary>
-        /// Adds the Times character to the text at the currently selection position
-        /// </summary>
-        /// <param name="sender">The event sender</param>
-        /// <param name="e">The event arguments</param>
         private void TimesButton_Click(object sender, EventArgs e)
         {
-            // Insert the value in the user input text box at the currently selected position
-            InsertTextValue("*");
+            
+                // Insert the value in the user input text box at the currently selected position
+                InsertTextValue("*");
 
-            // Focus the user input text
-            FocusInputText();
+                // Focus the user input text
+                FocusInputText();
+            
         }
 
-        /// <summary>
-        /// Adds the Minus character to the text at the currently selection position
-        /// </summary>
-        /// <param name="sender">The event sender</param>
-        /// <param name="e">The event arguments</param>
         private void MinusButton_Click(object sender, EventArgs e)
         {
             // Insert the value in the user input text box at the currently selected position
@@ -109,11 +94,6 @@ namespace Calculator_v1
             FocusInputText();
         }
 
-        /// <summary>
-        /// Adds the Plus character to the text at the currently selection position
-        /// </summary>
-        /// <param name="sender">The event sender</param>
-        /// <param name="e">The event arguments</param>
         private void PlusButton_Click(object sender, EventArgs e)
         {
             // Insert the value in the user input text box at the currently selected position
@@ -123,11 +103,6 @@ namespace Calculator_v1
             FocusInputText();
         }
 
-        /// <summary>
-        /// Calculates the given equation in the user input text
-        /// </summary>
-        /// <param name="sender">The event sender</param>
-        /// <param name="e">The event arguments</param>
         private void EqualsButton_Click(object sender, EventArgs e)
         {
             // Calculate the equation
@@ -136,15 +111,53 @@ namespace Calculator_v1
             // Focus the user input text
             FocusInputText();
         }
+        private void PiButton_Click(object sender, EventArgs e)
+        {
+            // Insert the value in the user input text box at the currently selected position
+            InsertTextValue("3,1416");
 
+            // Focus the user input text
+            FocusInputText();
+        }
+
+        private void Pow2Button_Click(object sender, EventArgs e)
+        {
+            // Insert the value in the user input text box at the currently selected position
+            InsertTextValue("^");
+
+            // Focus the user input text
+            FocusInputText();
+        }
+
+        private void PierwButton_Click(object sender, EventArgs e)
+        {
+            // Insert the value in the user input text box at the currently selected position
+            
+            InsertTextValue("√");
+
+            // Focus the user input text
+            FocusInputText();
+        }
+
+        private void Pow3Button_Click(object sender, EventArgs e)
+        {
+            // Insert the value in the user input text box at the currently selected position
+            InsertTextValue("#");
+
+            // Focus the user input text
+            FocusInputText();
+        }
+
+        private void logButton_Click(object sender, EventArgs e)
+        {
+            // Insert the value in the user input text box at the currently selected position
+            InsertTextValue("l");
+
+            // Focus the user input text
+            FocusInputText();
+        }
         #endregion
-        #region Number Methods
-
-        /// <summary>
-        /// Adds the . character to the text at the currently selection position
-        /// </summary>
-        /// <param name="sender">The event sender</param>
-        /// <param name="e">The event arguments</param>
+        #region number method
         private void DotButton_Click(object sender, EventArgs e)
         {
             // Insert the value in the user input text box at the currently selected position
@@ -154,11 +167,6 @@ namespace Calculator_v1
             FocusInputText();
         }
 
-        /// <summary>
-        /// Adds the 0 character to the text at the currently selection position
-        /// </summary>
-        /// <param name="sender">The event sender</param>
-        /// <param name="e">The event arguments</param>
         private void ZeroButton_Click(object sender, EventArgs e)
         {
             // Insert the value in the user input text box at the currently selected position
@@ -168,11 +176,6 @@ namespace Calculator_v1
             FocusInputText();
         }
 
-        /// <summary>
-        /// Adds the 1 character to the text at the currently selection position
-        /// </summary>
-        /// <param name="sender">The event sender</param>
-        /// <param name="e">The event arguments</param>
         private void OneButton_Click(object sender, EventArgs e)
         {
             // Insert the value in the user input text box at the currently selected position
@@ -182,11 +185,6 @@ namespace Calculator_v1
             FocusInputText();
         }
 
-        /// <summary>
-        /// Adds the 2 character to the text at the currently selection position
-        /// </summary>
-        /// <param name="sender">The event sender</param>
-        /// <param name="e">The event arguments</param>
         private void TwoButton_Click(object sender, EventArgs e)
         {
             // Insert the value in the user input text box at the currently selected position
@@ -196,11 +194,6 @@ namespace Calculator_v1
             FocusInputText();
         }
 
-        /// <summary>
-        /// Adds the 3 character to the text at the currently selection position
-        /// </summary>
-        /// <param name="sender">The event sender</param>
-        /// <param name="e">The event arguments</param>
         private void ThreeButton_Click(object sender, EventArgs e)
         {
             // Insert the value in the user input text box at the currently selected position
@@ -210,11 +203,6 @@ namespace Calculator_v1
             FocusInputText();
         }
 
-        /// <summary>
-        /// Adds the 4 character to the text at the currently selection position
-        /// </summary>
-        /// <param name="sender">The event sender</param>
-        /// <param name="e">The event arguments</param>
         private void FourButton_Click(object sender, EventArgs e)
         {
             // Insert the value in the user input text box at the currently selected position
@@ -224,11 +212,6 @@ namespace Calculator_v1
             FocusInputText();
         }
 
-        /// <summary>
-        /// Adds the 5 character to the text at the currently selection position
-        /// </summary>
-        /// <param name="sender">The event sender</param>
-        /// <param name="e">The event arguments</param>
         private void FiveButton_Click(object sender, EventArgs e)
         {
             // Insert the value in the user input text box at the currently selected position
@@ -238,11 +221,6 @@ namespace Calculator_v1
             FocusInputText();
         }
 
-        /// <summary>
-        /// Adds the 6 character to the text at the currently selection position
-        /// </summary>
-        /// <param name="sender">The event sender</param>
-        /// <param name="e">The event arguments</param>
         private void SixButton_Click(object sender, EventArgs e)
         {
             // Insert the value in the user input text box at the currently selected position
@@ -252,11 +230,6 @@ namespace Calculator_v1
             FocusInputText();
         }
 
-        /// <summary>
-        /// Adds the 7 character to the text at the currently selection position
-        /// </summary>
-        /// <param name="sender">The event sender</param>
-        /// <param name="e">The event arguments</param>
         private void SevenButton_Click(object sender, EventArgs e)
         {
             // Insert the value in the user input text box at the currently selected position
@@ -266,11 +239,6 @@ namespace Calculator_v1
             FocusInputText();
         }
 
-        /// <summary>
-        /// Adds the 8 character to the text at the currently selection position
-        /// </summary>
-        /// <param name="sender">The event sender</param>
-        /// <param name="e">The event arguments</param>
         private void EightButton_Click(object sender, EventArgs e)
         {
             // Insert the value in the user input text box at the currently selected position
@@ -280,11 +248,6 @@ namespace Calculator_v1
             FocusInputText();
         }
 
-        /// <summary>
-        /// Adds the 9 character to the text at the currently selection position
-        /// </summary>
-        /// <param name="sender">The event sender</param>
-        /// <param name="e">The event arguments</param>
         private void NineButton_Click(object sender, EventArgs e)
         {
             // Insert the value in the user input text box at the currently selected position
@@ -293,12 +256,8 @@ namespace Calculator_v1
             // Focus the user input text
             FocusInputText();
         }
-
         #endregion
-        #region equation
-        /// <summary>
-        /// Calculates the given equation and outputs the answer to the user label
-        /// </summary>
+        #region quation
         private void CalculateEquation()
         {
             // 1. Enums
@@ -350,7 +309,7 @@ namespace Calculator_v1
                             operation.RightSide = AddNumberPart(operation.RightSide, input[i]);
                     }
                     // If it is an operator ( + - * / ) set the operator type
-                    else if ("+-*/".Any(c => input[i] == c))
+                    else if ("+-*/l#^".Any(c => input[i] == c))
                     {
                         // If we are on the right side already, we now need to calculate our current operation
                         // and set the result to the left side of the next operation
@@ -427,15 +386,15 @@ namespace Calculator_v1
         private string CalculateOperation(Operation operation)
         {
             // Store the number values of the string representations
-            decimal left = 0;
-            decimal right = 0;
+            double left = 0;
+            double right = 0;
 
             // Check if we have a valid left side number
-            if (string.IsNullOrEmpty(operation.LeftSide) || !decimal.TryParse(operation.LeftSide, out left))
+            if (string.IsNullOrEmpty(operation.LeftSide) || !double.TryParse(operation.LeftSide, out left))
                 throw new InvalidOperationException($"Left side of the operation was not a number. {operation.LeftSide}");
 
             // Check if we have a valid right side number
-            if (string.IsNullOrEmpty(operation.RightSide) || !decimal.TryParse(operation.RightSide, out right))
+            if (string.IsNullOrEmpty(operation.RightSide) || !double.TryParse(operation.RightSide, out right))
                 throw new InvalidOperationException($"Right side of the operation was not a number. {operation.RightSide}");
 
             try
@@ -450,6 +409,15 @@ namespace Calculator_v1
                         return (left / right).ToString();
                     case OperationType.Multiply:
                         return (left * right).ToString();
+                    case OperationType.Pow2:
+                        return (Math.Pow(left, right)).ToString();
+                    /*case OperationType.Pow3:
+                        right = 3;
+                        return (Math.Pow(left, right)).ToString();*/
+                    case OperationType.Logg:
+                        return (Math.Log(left, right)).ToString();
+                    /*case OperationType.SQT:
+                        return SQT.ToString();*/
                     default:
                         throw new InvalidOperationException($"Unknown operator type when calculating operation. { operation.OperationType }");
                 }
@@ -477,6 +445,14 @@ namespace Calculator_v1
                     return OperationType.Divide;
                 case '*':
                     return OperationType.Multiply;
+                case '^':
+                    return OperationType.Pow2;
+                case '#':
+                    return OperationType.Pow3;
+                case 'l':
+                    return OperationType.Logg;
+                case '√':
+                    return OperationType.SQT;
                 default:
                     throw new InvalidOperationException($"Unknown operator type { character }");
             }
@@ -491,7 +467,7 @@ namespace Calculator_v1
         private string AddNumberPart(string currentNumber, char newCharacter)
         {
             // Check if there is already a . in the number
-            if (newCharacter ==',' && currentNumber.Contains(','))
+            if (newCharacter == ',' && currentNumber.Contains(','))
                 throw new InvalidOperationException($"Number {currentNumber} already contains a . and another cannot be added");
 
             return currentNumber + newCharacter;
@@ -542,9 +518,9 @@ namespace Calculator_v1
         }
 
         #endregion
-        #region tests
 
-        #endregion
+        
+
 
     }
 }

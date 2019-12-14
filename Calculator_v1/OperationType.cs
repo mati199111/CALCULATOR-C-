@@ -27,7 +27,23 @@ namespace Calculator_v1
         /// <summary>
         /// muliplies two numbers
         /// </summary>
-        Multiply
+        Multiply,
+        /// <summary>
+        /// number pi
+        /// </summary>
+        Pow2,
+        /// <summary>
+        /// pow 3
+        /// </summary>
+        Pow3,
+        /// <summary>
+        /// sqrt number
+        /// </summary>
+        SQT,
+        /// <summary>
+        /// logarithm 2
+        /// </summary>
+        Logg
     }
     #endregion
 }
