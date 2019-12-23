@@ -51,8 +51,8 @@
             this.PiButton = new System.Windows.Forms.Button();
             this.Pow2Button = new System.Windows.Forms.Button();
             this.PierwButton = new System.Windows.Forms.Button();
-            this.Pow3Button = new System.Windows.Forms.Button();
             this.logButton = new System.Windows.Forms.Button();
+            this.eButton = new System.Windows.Forms.Button();
             this.UserInputText = new System.Windows.Forms.TextBox();
             this.CalculationResultText = new System.Windows.Forms.Label();
             this.ButtonPanel2.SuspendLayout();
@@ -92,8 +92,8 @@
             this.ButtonPanel2.Controls.Add(this.PiButton, 4, 0);
             this.ButtonPanel2.Controls.Add(this.Pow2Button, 3, 0);
             this.ButtonPanel2.Controls.Add(this.PierwButton, 2, 0);
-            this.ButtonPanel2.Controls.Add(this.Pow3Button, 1, 0);
             this.ButtonPanel2.Controls.Add(this.logButton, 0, 2);
+            this.ButtonPanel2.Controls.Add(this.eButton, 1, 0);
             this.ButtonPanel2.Location = new System.Drawing.Point(12, 122);
             this.ButtonPanel2.Name = "ButtonPanel2";
             this.ButtonPanel2.RowCount = 5;
@@ -388,22 +388,9 @@
             this.PierwButton.Name = "PierwButton";
             this.PierwButton.Size = new System.Drawing.Size(68, 61);
             this.PierwButton.TabIndex = 21;
-            this.PierwButton.Text = "SQRT";
+            this.PierwButton.Text = "Mod";
             this.PierwButton.UseVisualStyleBackColor = true;
             this.PierwButton.Click += new System.EventHandler(this.PierwButton_Click);
-            // 
-            // Pow3Button
-            // 
-            this.Pow3Button.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Pow3Button.Location = new System.Drawing.Point(109, 3);
-            this.Pow3Button.Name = "Pow3Button";
-            this.Pow3Button.Size = new System.Drawing.Size(68, 61);
-            this.Pow3Button.TabIndex = 22;
-            this.Pow3Button.Text = "x^3";
-            this.Pow3Button.UseVisualStyleBackColor = true;
-            this.Pow3Button.Click += new System.EventHandler(this.Pow3Button_Click);
             // 
             // logButton
             // 
@@ -417,6 +404,19 @@
             this.logButton.Text = "log_𝑥⁡𝑦";
             this.logButton.UseVisualStyleBackColor = true;
             this.logButton.Click += new System.EventHandler(this.logButton_Click);
+            // 
+            // eButton
+            // 
+            this.eButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.eButton.Location = new System.Drawing.Point(109, 3);
+            this.eButton.Name = "eButton";
+            this.eButton.Size = new System.Drawing.Size(68, 61);
+            this.eButton.TabIndex = 24;
+            this.eButton.Text = "e";
+            this.eButton.UseVisualStyleBackColor = true;
+            this.eButton.Click += new System.EventHandler(this.eButton_Click);
             // 
             // UserInputText
             // 
@@ -483,9 +483,9 @@
         private System.Windows.Forms.Button PiButton;
         private System.Windows.Forms.Button Pow2Button;
         private System.Windows.Forms.Button PierwButton;
-        private System.Windows.Forms.Button Pow3Button;
         private System.Windows.Forms.Button logButton;
         private System.Windows.Forms.TextBox UserInputText;
         private System.Windows.Forms.Label CalculationResultText;
+        private System.Windows.Forms.Button eButton;
     }
 }

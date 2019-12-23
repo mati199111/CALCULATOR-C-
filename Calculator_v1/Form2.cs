@@ -16,7 +16,6 @@ namespace Calculator_v1
         {
             InitializeComponent();
         }
-
         #region load
 
         private Form1 _mainForm = null;
@@ -44,7 +43,6 @@ namespace Calculator_v1
         }
 
         #endregion
-
         #region clearing methods
         private void CEButton_Click(object sender, EventArgs e)
         {
@@ -133,16 +131,17 @@ namespace Calculator_v1
         {
             // Insert the value in the user input text box at the currently selected position
             
-            InsertTextValue("√");
+            InsertTextValue("m");
 
             // Focus the user input text
             FocusInputText();
         }
 
-        private void Pow3Button_Click(object sender, EventArgs e)
+        private void eButton_Click(object sender, EventArgs e)
         {
             // Insert the value in the user input text box at the currently selected position
-            InsertTextValue("#");
+
+            InsertTextValue("2,7182");
 
             // Focus the user input text
             FocusInputText();
@@ -309,7 +308,7 @@ namespace Calculator_v1
                             operation.RightSide = AddNumberPart(operation.RightSide, input[i]);
                     }
                     // If it is an operator ( + - * / ) set the operator type
-                    else if ("+-*/l#^".Any(c => input[i] == c))
+                    else if ("+-*/l#^m".Any(c => input[i] == c))
                     {
                         // If we are on the right side already, we now need to calculate our current operation
                         // and set the result to the left side of the next operation
@@ -416,8 +415,8 @@ namespace Calculator_v1
                         return (Math.Pow(left, right)).ToString();*/
                     case OperationType.Logg:
                         return (Math.Log(left, right)).ToString();
-                    /*case OperationType.SQT:
-                        return SQT.ToString();*/
+                    case OperationType.Mod:
+                        return (left % right).ToString();
                     default:
                         throw new InvalidOperationException($"Unknown operator type when calculating operation. { operation.OperationType }");
                 }
@@ -451,8 +450,8 @@ namespace Calculator_v1
                     return OperationType.Pow3;
                 case 'l':
                     return OperationType.Logg;
-                case '√':
-                    return OperationType.SQT;
+                case 'm':
+                    return OperationType.Mod;
                 default:
                     throw new InvalidOperationException($"Unknown operator type { character }");
             }
@@ -517,10 +516,10 @@ namespace Calculator_v1
             }
         }
 
+
+
+
+
         #endregion
-
-        
-
-
     }
 }

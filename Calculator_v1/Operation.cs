@@ -9,7 +9,7 @@ namespace Calculator_v1
     /// <summary>
     /// holds information about a single calculator operation
     /// </summary>
-    public class Operation
+    public class Operation : Form1
     {
         #region Public properites
         /// <summary>

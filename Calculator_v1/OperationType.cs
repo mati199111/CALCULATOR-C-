@@ -39,7 +39,7 @@ namespace Calculator_v1
         /// <summary>
         /// sqrt number
         /// </summary>
-        SQT,
+        Mod,
         /// <summary>
         /// logarithm 2
         /// </summary>
